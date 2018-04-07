@@ -1,0 +1,188 @@
+h1 {
+    text-align: center;
+}
+
+h2{
+    margin-left: 5rem;
+}
+
+html, body {
+    height: 100%;
+    weight: 100%
+}
+
+* { padding: 0; margin: 0; }
+
+.registry{
+    font-size: 40px;
+    text-align: center;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.parent {
+  display: flex;
+  height: 100%;
+}
+
+#localization {
+    padding-right: 30px;
+    float: right;
+}
+.topnav {
+    background-color: #333;
+    top: 0;
+    overflow: hidden;
+}
+.mymenu {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+}
+.topnav a{
+    text-decoration: none;
+    color: #818181;
+}
+.topnav a:hover {
+    color: white;
+}
+.sidenav {
+    float: left;
+    height: 100%;
+    width: 160px;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+.sidenav ul{
+    box-sizing: border-box;
+    list-style-type:none;
+    padding-left: 10px;
+}
+/* The navigation menu links */
+.sidenav ul a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #818181;
+    text-align: left;
+    padding-bottom: 10px;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.logo{
+    float: left
+}
+.menu{
+    float: middle;
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.clock{
+    padding-top: 12px;
+    float: middle;
+    text-align: center;
+    vertical-align: text-top;
+    color: white;
+    font-size: 32px;
+}
+th{
+    font-size: 16px;
+    vertical-align: text-top;
+    text-align: center;
+    float: middle;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+.form-control2{
+    display:block;
+    width:100%;
+    padding:.375rem .75rem;
+    font-size:2rem;
+    line-height:2;
+    color:#495057;
+    background-color:#fff;
+    background-image:none;
+    background-clip:padding-box;
+    border:2px solid #ced4da;
+    border-radius:.25rem;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+    
+}
+.form-control3{
+    padding:.375rem .75rem;
+    font-size:2rem;
+    line-height:2;
+    color:#495057;
+    background-color:#fff;
+    background-image:none;
+    background-clip:padding-box;
+    border:2px solid #ced4da;
+    border-radius:.25rem;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+    
+}
+td {
+    font-size: 16px;
+    text-align: center;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+

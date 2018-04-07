@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Formularz dodawania kwiatka</h2>
+ <div class="jumbotron">
+    <h1>Dodawanie kwiatka</h1>
+  <form class="form-signin" action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+       <label>Nazwa kwiatka:</label>
+      <input type="text" class="form-control" id="flower" name="flower" placeholder="Flower Name">
+      
+      <label>Urządzenie:</label>
+      <br>
+      <select id="device" name="device" class="form-control2" onchange="chooseBoard(this.value)">
+            <option  value="0"  >--None--</option>
+            <option  value="1"  >RP Zero</option>
+            <option  value="2">EXP0</option>
+            <option  value="3" >EXP1</option>
+            <option  value="4" >EXP2</option>
+      </select>
+    
+    <br>
+      <label>Port:</label>
+      <br>
+    <select class="form-control2" id="pin" name="pin">
+    <option value="0">--None--</option>
+    </select>
+    <br>
+      <label>Godzina podlewania</label>
+      <br>
+      <label>Godzina</label>
+      <select id="hh" name="hh" class="form-control2">
+        <option value="0">--None--</option>
+        {% for i in range(24) %}
+            {% if i < 10 %}
+                <option value={{i}}>0{{i}}</option>
+            {% else %}
+                <option value={{i}}>{{i}}</option>
+             {% endif %}
+        {% endfor%}
+      </select>
+      
+       <br>
+    <label>Minuty</label>
+    <select name="mm" id="mm" class="form-control2">
+        <option value="0">--None--</option>
+     {% for i in range(0,60,5) %}
+            {% if i < 10 %}
+                <option value={{i}}>0{{i}}</option>
+            {% else %}
+                <option value={{i}}>{{i}}</option>
+             {% endif %}
+        {% endfor%}
+    </select>
+    
+    <br>
+    <label>Okres nawadniania(w dniach)</label>
+     <select name="nexty" id="nexty" class="form-control2">
+        <option value="0">--None--</option>
+        {% for i in range(15) %}
+            <option value={{i}}>{{i}}</option>
+        {% endfor%}
+      </select>
+    <p class="lead"></p>
+    <button type="submit" id="btnSignUp" class="btn btn-lg btn-primary btn-block">Dodaj</button>
+    <p class="lead"></p>
+    <p>Jeśni nie chcesz dodawać kwiatka wróć do strony głównej</p>
+    <p><a class="btn btn-lg btn-success" href="/edycja" role="button">Wróć</a>
+    </p>
+
+  </form>
+ 
+  <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+ 
+</div>
+<br>            
+</div>
+</div>
+</div>
+ <footer class="footer">
+       
+        <p>&copy; Company Arhelius 2017/2018</p>
+      </footer>
+{% endblock %}

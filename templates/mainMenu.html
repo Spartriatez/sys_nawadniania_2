@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<body {% block body_attrs %} onload="startTime() "{% endblock %}>
+
+<div class="topnav" id="myTopnav">
+    <img class="logo" src="../static/logo2.png"/>
+    <a id="localization" class="mymenu" href="/logout">Wyloguj</a>
+    <div id="txt" class="clock" ></div>
+</div>
+{% block content %}{% endblock %}
+{% endblock %}
+</body>

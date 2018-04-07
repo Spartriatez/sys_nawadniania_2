@@ -1,0 +1,66 @@
+{% extends "mainMenu.html" %}
+{% block content %}
+<div class="sidenav">
+    <ul>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/edycja">Edycja kwiatów</a></li>
+        <li><a class="active" href="/nawadnianie">Dodatkowe nawadnianie</a></li>
+        <li><a href="/historia">Historia nawadniania</a></li>
+    </ul>  
+</div>
+<div class="menu">
+     <p class="lead"></p>
+    <h1> Dodatkowe nawadnianie </h1>
+    <p class="lead"></p>
+     <form action="" method="post" role="form">
+        <p class="lead"></p>
+        <button type="submit" id="btnSignUp" class="btn btn-lg btn-primary">
+        <span class="glyphicon glyphicon-plus"></span>
+            Dodaj
+        </button>
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="bs-checkbox th-inner"><input type="checkbox" name="selectAll" value="Kwiat1" onclick="checkAll()" /></th>
+                    <th>Nazwa kwiatka</th>
+                    <th>Nadane złącze</div></th>
+                    <th>Nadany pin</div></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in range(table|length) %}
+                <tr>
+                <td><input type="checkbox" name="selectThis[]" value={{i}} /></td>
+                {% for j in range(table[i]|length) %}
+                    {% if(j>0) %}
+                        <td>{{ table[i][j] }}</td>
+                    {% endif %}
+                {% endfor %}
+                <tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </form>
+    <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+</div>
+{% endblock %}

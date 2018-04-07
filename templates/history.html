@@ -1,0 +1,81 @@
+{% extends "mainMenu.html" %}
+{% block content %}
+<div class="sidenav">
+    <ul>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/edycja">Edycja kwiatów</a></li>
+        <li><a href="/nawadnianie">Dodatkowe nawadnianie</a></li>
+        <li><a class="active" href="/historia">Historia nawadniania</a></li>
+    </ul>  
+</div>
+<div class="menu">
+     <p class="lead"></p>
+    <h1> Historia </h1>
+    <p class="lead"></p>
+     <form action="" method="post" role="form">
+        <div>
+            <p class="lead"></p>
+            Nazwa: <input type="text" id="flower" name="flower" placeholder="Nazwa kwiatka">
+            Miesiąc: <select name="MM" id="MM" class="form-control3">
+                <option value="0">--None--</option>
+                {% for i in months %}
+                    <option value={{i}}>{{i}}</option>
+                {% endfor %}
+            </select>
+            Rok: <select name="YYYY" id="YYYY" class="form-control3">
+                <option value="0">--None--</option>
+                {% for j in years %}
+                <option value={{j}}>{{j}}</option>
+                    <p>{{j}}</p>
+                {% endfor%}
+            </select>
+            <button type="submit" id="btnSignUp" class="btn btn-lg btn-success">
+            <span class="glyphicon glyphicon-search"></span>
+                Wyszukaj
+            </button>
+        </div>
+        <table class="table table-hover">
+        <thead>
+            <tr><td colspan="3">{{Month}}-{{Year}}</td></tr>
+            <tr>
+                <th>Nazwa kwiatka</th>
+                <th>Data ostatniego podlewania</div></th>
+                <th>Data następnego podlewania</div></th>
+            </tr>
+        </thead>
+        <tbody>
+	{% if (table|length) >0 %}
+          {% for i in range(table|length) %}
+            <tr>
+            {% for j in range(table[i]|length) %}
+                <td>{{ table[i][j] }}</td>
+            {% endfor %}
+            <tr>
+        {% endfor %}
+	{% else %}
+		<tr><td colspan="3">"Brak danych" </td></tr>
+	{% endif %}
+        </tbody>
+        </form>
+    <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+</div>
+</div>
+{% endblock %}

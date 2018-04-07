@@ -1,0 +1,70 @@
+{% extends "mainMenu.html" %}
+{% block content %}
+
+<div class="sidenav">
+    <ul>
+        <li><a href="/menu">Menu</a></li>
+        <li><a class="active" href="/edycja">Edycja kwiatów</a></li>
+        <li><a href="/nawadnianie">Dodatkowe nawadnianie</a></li>
+        <li><a href="/historia">Historia nawadniania</a></li>
+    </ul>  
+</div>
+<div class="menu">
+    <p class="lead"></p>
+    <h1> Edycja kwiatów </h1>
+    <p class="lead"></p>
+    <a class="btn btn-lg btn-danger" href="/edycja/usun">
+       <span class="glyphicon glyphicon-remove"></span>
+        Usuń
+    </a>
+     <a class="btn btn-lg btn-primary" href="/edycja/dodaj">
+       <span class="glyphicon glyphicon-plus"></span>
+        Dodaj
+    </a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nazwa kwiatka</th>
+                <th>Nadane złącze</div></th>
+                <th>Nadany pin</div></th>
+                <th>Utworzony</th>
+                <th>Godzina podlewania</th>
+                <th>Data podlewania</th>
+                <th>Okres podlewania(w dniach)</th>
+            </tr>
+        </thead>
+        <tbody>
+	{% if (table|length)>0 %}
+        {% for i in range(table|length) %}
+            <tr>
+            {% for j in range(table[i]|length) %}
+                <td>{{ table[i][j] }}</td>
+            {% endfor %}
+            <tr>
+        {% endfor %}
+        {% else %}
+		<tr><td colspan="7">"Brak danych" </td></tr>
+	{% endif %}
+        </tbody>
+    </table>
+     <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+</div>
+{% endblock %}
